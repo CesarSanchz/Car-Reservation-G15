@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th = "wwww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Get Car By Your Destination</title>
+</head>
+<body>
+    <h1> Make a selection to finish reservation!</h1>
+    <form action ="#" th:action="@{/select_reservationByCity}" th:object="${car}" method = "post">
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Car make</th>
+            <th>Car model</th>
+            <th>Fuel Type</th>
+            <th>Transmission</th>
+            <th>Price</th>
+            <th></th>
+        </tr> 
+    <tr th:each="Car :${Car}">
+            <td style="display:none;" th:name = "id" th:text="${Car.id}"></td>
+            <td th:text = "${Car.year}" th:name = "year"></td>
+            <td th:text = "${Car.make}" th:name = "make" ></td>
+            <td th:text = "${Car.model}"></td>
+            <td th:text = "${Car.fuel}" th:name = "fuel"></td>
+            <td th:text = "${Car.transmission}" th:name = "transmission"></td>            
+            <td th:text = "${Car.price}" th:name = "Price"></td>
+            <td><button> Reserve Car</button></td>
+            
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
