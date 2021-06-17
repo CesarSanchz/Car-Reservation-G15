@@ -9,7 +9,7 @@
 	<h3>This is not your receipt yet</h3>
 	<br/>
 	<h4>Your selected Car details:</h4>
-	<form action ="#" th:action="@{/select/confirmation}" th:object="${car}" method = "post">
+<!-- <form action ="#" th:action="@{/select/confirmation}" th:object="${car}" method = "post">  -->	
 	<table>
 		<tr>
 			<th>Year</th>
@@ -28,10 +28,14 @@
             	<td th:text = "${Car.fuel}" th:name = "fuel"></td>
             	<td th:text = "${Car.transmission}" th:name = "transmission"></td>            
             	<td th:text = "${Car.price}" th:name = "Price"></td>
-            	<td><button> Reserve Car</button></td>
+                  		
 			</tr>
 	</table>
-	
-</form>
+			 
+			 <input type = "submit" value="Checkout" />
+<!--	<form action = "#" th:action = "@{/select/reservation_car}" th:object ="${Car}" method = "post">-->
+		<button type = "submit" th:value = "${Car.id}" th:name = "id" th:text = "@{Reserve Me Now}"></button>
+<!--	</form> -->
+<!-- </form> -->
 </body>
 </html>

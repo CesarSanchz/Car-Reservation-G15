@@ -51,19 +51,31 @@ public class CarController {
     public String getCarByCity(@RequestParam("city") String city, Model model ) throws ParseException {
         List<Car> cars = CarRepository.findByCity(city);
         model.addAttribute("Car", cars);
-        System.out.append(city);
+        //System.out.append(city);
         return "reservations_page";
     }
       //try using findbyid from the carrepo page .java 
 	@PostMapping("/select/reservation_page")
 	public String getCarById(@RequestParam("id") int id, Model model) {
-		 List<Car> test= CarRepository.findById(id);
-		Car cars = new Car();
+		 //List<Car> test= CarRepository.findById(id);
+		Car car = carService.getCarById(id);
+	
 		//Car cars = CarRepository.findCarById(id);
-		model.addAttribute("Car", test);
-		model.addAttribute("car", cars);		
-			return "reservations_save";
+		model.addAttribute("Car", car);
+		System.out.println("car id: " + car);
+			
+			return "reservation_save";
 	}
 
-	//@PostMapping("/select/confirmation")
+	@PostMapping("/select/reservation_car")
+	public String geres(@RequestParam("id") int id, Model model) {
+		 //List<Car> test= CarRepository.findById(id);
+		Car car = carService.getCarById(id);
+	
+		//Car cars = CarRepository.findCarById(id);
+		model.addAttribute("Car", car);
+		System.out.println("car id: " + car);
+			
+			return "cars_list";
+	}
 }

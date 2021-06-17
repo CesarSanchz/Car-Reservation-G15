@@ -7,7 +7,7 @@
 <body>
     <h1> Make a selection to finish reservation!</h1>
     <h1> Cars in </h1>
-    <form action ="#" th:action="@{/select/reservation_page}" th:object="${car}" method = "post">
+  <!-- <form action ="#" th:action="@{/select/reservation_page}" th:object="${car}" method = "post"> <!--  -->
     <table>
         <tr>
             <th>Year</th>
@@ -26,10 +26,14 @@
             <td th:text = "${Car.fuel}" th:name = "fuel"></td>
             <td th:text = "${Car.transmission}" th:name = "transmission"></td>            
             <td th:text = "${Car.price}" th:name = "Price"></td>
-            <td><button> Reserve Car respage</button></td>
+            <td>
+            		<form action = "#" th:action = "@{/select/reservation_page}" th:object ="${car}" method = "post">
+						<button type = "submit" th:value = "${Car.id}" th:name = "id" th:text = "@{Reserve Me Now}"></button>
+					</form>
+            </td>
             
         </tr>
     </table>
-    </form>
+  <!--   </form>-->
 </body>
 </html>
