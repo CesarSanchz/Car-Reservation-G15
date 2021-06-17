@@ -3,17 +3,14 @@ package cst438.controllers;
 import java.text.ParseException;
 import java.util.List;
 
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PathVariable;
 import cst438.domain.*;
 import cst438.services.*;
 import cst438.repositories.CarRepository;
@@ -60,24 +57,22 @@ public class CarController {
         //System.out.append(city);
         return "reservations_page";
     }
-      //try using findbyid from the carrepo page .java 
+      //takes the car id input from the html page to the next page to display it 
 	@PostMapping("/select/reservation_page")
 	public String getCarById(@RequestParam("id") int id, Model model) {
-		 //List<Car> test= CarRepository.findById(id);
 		Car car = carService.getCarById(id);
-	
-		//Car cars = CarRepository.findCarById(id);
 		model.addAttribute("Car", car);
 		System.out.println("car id: " + car);
 			
 			return "reservation_save";
 	}
-
+	//returns the reservation made 
 	@PostMapping("/select/reservation_car")
     public ResponseEntity<Reservation> addReservation(@RequestParam("id")int id, @RequestParam("email") String email) {
     int car_id = id;    
     System.out.println("Attempting to reserve " + id + " for " + email);
     Reservation reservation = carService.makeReservation(car_id, email);
-    return new ResponseEntity<Reservation>(reservation, HttpStatus.OK);
+    
+    	return new ResponseEntity<Reservation>(reservation, HttpStatus.OK);
 }
 }
