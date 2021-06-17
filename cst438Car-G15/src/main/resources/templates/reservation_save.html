@@ -31,11 +31,13 @@
                   		
 			</tr>
 	</table>
-			 
+			
+	<form action = "#" th:action = "@{/select/reservation_car}" th:object ="${Car}" method = "post">-->
+			<input  type="hidden" th:name = "id" th:value="${Car.id}">
+			<input type = "text" th:name = "email" th:value="${email}" />
 			 <input type = "submit" value="Checkout" />
-<!--	<form action = "#" th:action = "@{/select/reservation_car}" th:object ="${Car}" method = "post">-->
-		<button type = "submit" th:value = "${Car.id}" th:name = "id" th:text = "@{Reserve Me Now}"></button>
-<!--	</form> -->
+		
+</form>
 <!-- </form> -->
 </body>
 </html>

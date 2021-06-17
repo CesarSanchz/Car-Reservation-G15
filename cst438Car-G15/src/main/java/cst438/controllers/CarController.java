@@ -68,14 +68,10 @@ public class CarController {
 	}
 
 	@PostMapping("/select/reservation_car")
-	public String geres(@RequestParam("id") int id, Model model) {
-		 //List<Car> test= CarRepository.findById(id);
-		Car car = carService.getCarById(id);
-	
-		//Car cars = CarRepository.findCarById(id);
-		model.addAttribute("Car", car);
-		System.out.println("car id: " + car);
-			
-			return "cars_list";
+		public Reservation addReservation(@RequestParam("id")int id, @RequestParam("email") String email) {
+		int car_id = id;	
+		System.out.println("Attempting to reserve " + id + " for " + email);
+		Reservation reservation = carService.makeReservation(car_id, email);
+		return reservation;
 	}
 }
