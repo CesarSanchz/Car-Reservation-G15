@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import cst438.domain.*;
 import cst438.services.*;
 import cst438.repositories.CarRepository;
+import cst438.repositories.ReservationRepository;
 
 @Controller
 public class CarController {
@@ -24,6 +27,9 @@ public class CarController {
 	
 	@Autowired
 	CarService carService;
+	
+	@Autowired
+	ReservationRepository reservationRepository; 
 	
 	
 	
@@ -68,10 +74,10 @@ public class CarController {
 	}
 
 	@PostMapping("/select/reservation_car")
-		public Reservation addReservation(@RequestParam("id")int id, @RequestParam("email") String email) {
-		int car_id = id;	
-		System.out.println("Attempting to reserve " + id + " for " + email);
-		Reservation reservation = carService.makeReservation(car_id, email);
-		return reservation;
-	}
+    public ResponseEntity<Reservation> addReservation(@RequestParam("id")int id, @RequestParam("email") String email) {
+    int car_id = id;    
+    System.out.println("Attempting to reserve " + id + " for " + email);
+    Reservation reservation = carService.makeReservation(car_id, email);
+    return new ResponseEntity<Reservation>(reservation, HttpStatus.OK);
+}
 }
