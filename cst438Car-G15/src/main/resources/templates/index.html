@@ -8,8 +8,10 @@
  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
  crossorigin="anonymous">
 <link th:href="@{/styles/display.css}" rel="stylesheet" />
+<link th:href="@{images/californiaindex.png}"/>
 </head>
-<body>
+
+<body background="images/californiaindex.jpg">
 	
 	<div class="jumbotron text-center" >
 		<h1> Welcome to Car Rental</h1>
@@ -17,8 +19,8 @@
 	
 	<h2>Please select a city to get started</h2>
 	<br/>
-	<form th:action="@{/select_reservationByCity}" th:object="${city}" method = "post">
-	<label for="cars">Choose a city:</label>
+	<form th:action="@{/select_reservationByCity}" th:object="${city}" method = "post" class="center">
+	<label for="cars" class="center">Choose a city:</label>
 	  <select th:id="city" th:name="city">
 	    <option>Select</option>
 	    <option value="seattle">Seattle</option>
@@ -28,8 +30,24 @@
 	    <option value="washington d.c.">Washingotn D.C.</option>
 	    <option value="san diego">San Diego</option>
   	  </select>
-  	<input type="submit">
+  	<input type="submit" class="center">
   	</form>
+	<!-- <img src="images/californiaindex.jpg" alt="Table" >  -->
 	<br/>
+
+	<form action = "#" th:action = "@{allCars}" class="center"> 
+	<button>View Inventory</button>
+	</form>
+	
+	<br/>
+			<!-- 
+			<form action = "#" th:action = "@{/getReservation/id}" th:object ="${reservation}" method = "post" class="center">
+			<br/>
+		
+			<input type = "text" th:name = "rid" th:value="${rid}" class="center" />
+			 <input type = "submit" value="Delete Reservation" />
+		
+</form>
+ -->	
 </body>
 </html>
