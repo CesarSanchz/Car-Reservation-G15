@@ -19,6 +19,8 @@ public class CarService {
 	@Autowired
 	private ReservationRepository reservationRepository;
 	
+	
+	
 	public Car getCar(int id) {
 		List<Car> cars = carRepository.findById(id);
 		Car car = cars.get(0);
@@ -26,6 +28,8 @@ public class CarService {
 				car.getTransmission(),car.getYear(),
 				car.getPrice(), car.getCity());
 	}
+	
+	
 	
 	// Car APIs
 	
