@@ -11,10 +11,10 @@
 				<link th:href="@{/styles/display.css}" rel="stylesheet" />
 				<link th:href="@{images/californiaindex.png}"/>
 			</head>
-			<body background="images/californiaindex.jpg">
-				<div class="jumbotron text-center" >
+	<body background="images/californiaindex.jpg">
+			<div class="jumbotron text-center" >
 					<h1> Welcome to Car Rental</h1>
-				</div>
+			</div>
 				<h2>Please select a city to get started</h2>
 				<br/>
 				<form th:action="@{/select_reservationByCity}" th:object="${city}" method = "post" class="center">
@@ -30,10 +30,10 @@
 					</select>
 					<input type="submit" class="center">
 					</form>
-					<br/>
+						<br/>
 					<form action = "#" th:action = "@{allCars}" class="center">
 						<button>View Inventory</button>
 					</form>
 					<br/>
-				</body>
-			</html>
+	</body>
+</html>
