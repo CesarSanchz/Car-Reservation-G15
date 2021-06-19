@@ -8,8 +8,9 @@
  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
  crossorigin="anonymous">
 <link th:href="@{/styles/display.css}" rel="stylesheet" />
+
 </head>
-<body>
+<body background="images/ben.jpg">
     <h1> Make a selection to finish reservation!</h1>
     	
     			<form action = "#" th:action = "@{/}" class="center"> 
@@ -17,7 +18,7 @@
 				</form>
     	
     <h1> Cars Available </h1>
-  <!-- <form action ="#" th:action="@{/select/reservation_page}" th:object="${car}" method = "post"> <!--  -->
+  
     <table class="center">
         <tr>
             <th>Year</th>
@@ -44,6 +45,6 @@
             
         </tr>
     </table>
-  <!--   </form>-->
+  
 </body>
 </html>
