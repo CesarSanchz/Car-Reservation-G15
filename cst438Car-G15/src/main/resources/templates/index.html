@@ -1,45 +1,40 @@
 <!DOCTYPE html>
-<html  xmlns:th = "wwww.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>CarRental</title>
-<link rel="stylesheet"
+<html
+	xmlns:th = "wwww.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+			<title>CarRental</title>
+			<link rel="stylesheet"
  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
  crossorigin="anonymous">
-<link th:href="@{/styles/display.css}" rel="stylesheet" />
-<link th:href="@{images/californiaindex.png}"/>
-</head>
+				<link th:href="@{/styles/display.css}" rel="stylesheet" />
+				<link th:href="@{images/californiaindex.png}"/>
+			</head>
+			<body background="images/californiaindex.jpg">
+				<div class="jumbotron text-center" >
+					<h1> Welcome to Car Rental</h1>
+				</div>
+				<h2>Please select a city to get started</h2>
+				<br/>
+				<form th:action="@{/select_reservationByCity}" th:object="${city}" method = "post" class="center">
+					<label for="cars" class="center">Choose a city:</label>
+					<select th:id="city" th:name="city">
+						<option>Select</option>
+						<option value="seattle">Seattle</option>
+						<option value="san francisco">San Francisco</option>
+						<option value="new york">New York</option>
+						<option value="boston">Boston</option>
+						<option value="washington d.c.">Washingotn D.C.</option>
+						<option value="san diego">San Diego</option>
+					</select>
+					<input type="submit" class="center">
+					</form>
+					<br/>
+					<form action = "#" th:action = "@{allCars}" class="center">
+						<button>View Inventory</button>
+					</form>
+					<br/>
+				</body>
+			</html>
 
-<body background="images/californiaindex.jpg">
-	
-	<div class="jumbotron text-center" >
-		<h1> Welcome to Car Rental</h1>
-	</div>	
-	
-	<h2>Please select a city to get started</h2>
-	<br/>
-	<form th:action="@{/select_reservationByCity}" th:object="${city}" method = "post" class="center">
-	<label for="cars" class="center">Choose a city:</label>
-	  <select th:id="city" th:name="city">
-	    <option>Select</option>
-	    <option value="seattle">Seattle</option>
-	    <option value="san francisco">San Francisco</option>
-	    <option value="new york">New York</option>
-	    <option value="boston">Boston</option>
-	    <option value="washington d.c.">Washingotn D.C.</option>
-	    <option value="san diego">San Diego</option>
-  	  </select>
-  	<input type="submit" class="center">
-  	</form>
-	<!-- <img src="images/californiaindex.jpg" alt="Table" >  -->
-	<br/>
-
-	<form action = "#" th:action = "@{allCars}" class="center"> 
-	<button>View Inventory</button>
-	</form>
-	
-	<br/>
-
-</body>
-</html>

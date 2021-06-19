@@ -1,47 +1,47 @@
 <!DOCTYPE html>
-<html  xmlns:th = "wwww.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Cars Details</title>
-<link rel="stylesheet"
+<html
+	xmlns:th = "wwww.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+			<title>Cars Details</title>
+			<link rel="stylesheet"
  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
  crossorigin="anonymous">
-<link th:href="@{/styles/display.css}" rel="stylesheet" />
-</head>
-<body>
-	<div class="jumbotron text-center" >
-	<h2> Display Car Details</h2>
-	
-			<form action = "#" th:action = "@{/}" class="center"> 
-					<button>Home Page</button>
-			</form>
-	</div>
-	<br/>
-	<table class="center">
-		<tr>
-			<th>Year </th>
-			<th>Car make</th>
-			<th>Car model</th>
-			<th>Fuel Type</th>
-			<th>Transmission</th>
-			<th>Price</th>
-			<th></th>
-		</tr>
-		<tr th:each="Car :${Car}">
-			<td style="display:none;" th:name = "id" th:text="${Car.id}"></td>
-			<td th:text = "${Car.year}" th:name = "year"></td>
-			<td th:text = "${Car.make}" th:name = "make" ></td>
-			<td th:text = "${Car.model}"></td>
-			<td th:text = "${Car.fuel}" th:name = "fuel"></td>
-			<td th:text = "${Car.transmission}" th:name = "transmission"></td>			
-			<td th:text = "${Car.price}" th:name = "Price"></td>
-			<td>
-			<form action = "#" th:action = "@{/select/reservation_page}" th:object ="${car}" method = "post" class="center">
-						<button type = "submit" th:value = "${Car.id}" th:name = "id" th:text = "@{Reserve Me Now}" class="center"></button>
-			</form>
-			</td>
-		</tr>
-	</table>
-</body>
-</html>
+				<link th:href="@{/styles/display.css}" rel="stylesheet" />
+			</head>
+			<body>
+				<div class="jumbotron text-center" >
+					<h2> Display Car Details</h2>
+					<form action = "#" th:action = "@{/}" class="center">
+						<button>Home Page</button>
+					</form>
+				</div>
+				<br/>
+				<table class="center">
+					<tr>
+						<th>Year </th>
+						<th>Car make</th>
+						<th>Car model</th>
+						<th>Fuel Type</th>
+						<th>Transmission</th>
+						<th>Price</th>
+						<th></th>
+					</tr>
+					<tr th:each="Car :${Car}">
+						<td style="display:none;" th:name = "id" th:text="${Car.id}"></td>
+						<td th:text = "${Car.year}" th:name = "year"></td>
+						<td th:text = "${Car.make}" th:name = "make" ></td>
+						<td th:text = "${Car.model}"></td>
+						<td th:text = "${Car.fuel}" th:name = "fuel"></td>
+						<td th:text = "${Car.transmission}" th:name = "transmission"></td>
+						<td th:text = "${Car.price}" th:name = "Price"></td>
+						<td>
+							<form action = "#" th:action = "@{/select/reservation_page}" th:object ="${car}" method = "post" class="center">
+								<button type = "submit" th:value = "${Car.id}" th:name = "id" th:text = "@{Reserve Me Now}" class="center"></button>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</body>
+		</html>
