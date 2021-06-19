@@ -24,6 +24,7 @@
 						<th>Fuel Type</th>
 						<th>Transmission</th>
 						<th>Price</th>
+						<th>City</th>
 						<th></th>
 					</tr>
 					<tr th:each="Car :${Car}">
@@ -34,6 +35,7 @@
 						<td th:text = "${Car.fuel}" th:name = "fuel"></td>
 						<td th:text = "${Car.transmission}" th:name = "transmission"></td>
 						<td th:text = "${Car.price}" th:name = "Price"></td>
+						<td th:text = "${Car.city}" th:name = "City"></td>
 						<td>
 							<form action = "#" th:action = "@{/select/reservation_page}" th:object ="${car}" method = "post" class="center">
 								<button type = "submit" th:value = "${Car.id}" th:name = "id" th:text = "@{Reserve Me Now}" class="center"></button>
